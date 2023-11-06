@@ -8,6 +8,7 @@ fn main() {
     println!("Guess the number!");
 
     loop {
+        count += 1;
         println!("Please input your guess.");
 
         let mut guess = String::new();
@@ -25,16 +26,9 @@ fn main() {
         };
 
         match guess.cmp(&secret_number) {
-            Ordering::Less => {
-                count += 1;
-                println!("Too small!");
-            }
-            Ordering::Greater => {
-                count += 1;
-                println!("Too big!")
-            }
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
             Ordering::Equal => {
-                count += 1;
                 println!("You win! It took {count} guesses.");
                 break;
             }
